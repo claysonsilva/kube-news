@@ -57,13 +57,13 @@ spec:
             - containerPort: 8080
           env:
             - name: DB_DATABASE
-              value: kubenews
+              value: "kubenews"
             - name: DB_USERNAME
-              value: kubenews
+              value: "kubenews"
             - name: DB_PASSWORD
-              value: 1234
+              value: "1234"
             - name: DB_HOST
-              value: postgresql-service
+              value: "postgresql-service"
 ---
 apiVersion: v1
 kind: Service
