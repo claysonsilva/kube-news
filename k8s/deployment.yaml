@@ -30,7 +30,7 @@ metadata:
   name: postgresql-service
 spec:
   selector:
-    app: postgresql-label
+    app: postgresql-template
   ports:
   - port: 5432
     targetPort: 5432
