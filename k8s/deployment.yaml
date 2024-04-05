@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: postgresql-template
+      app: postgresql-labels
   template:
     metadata:
       labels:
-        app: postgresql-template
+        app: postgresql-labels
     spec:
       containers:
         - name: postgresql-container
@@ -30,7 +30,7 @@ metadata:
   name: postgresql-service
 spec:
   selector:
-    app: postgresql-template
+    app: postgresql-labels
   ports:
   - port: 5432
     targetPort: 5432
