@@ -22,7 +22,7 @@ spec:
             - name: POSTGRES_USER
               value: "kubenews"
             - name: POSTGRES_DB
-              value: "kubenews_db"
+              value: "kubenews"
 ---
 apiVersion: v1
 kind: Service
