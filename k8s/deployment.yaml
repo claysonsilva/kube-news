@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: postgresql-label
+      app: postgresql-template
   template:
     metadata:
       labels:
