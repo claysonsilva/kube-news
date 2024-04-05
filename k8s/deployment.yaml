@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgresql
+  name: postgresql-metadata
 spec:
   selector:
     matchLabels:
-      app: postgresql
+      app: postgresql-labels
   template:
     metadata:
       labels:
-        app: postgresql
+        app: postgresql-labels
     spec:
       containers:
-        - name: postgresql
+        - name: postgresql-container
           image: postgres:16.2-alpine3.19
           ports:
             - containerPort: 5432
@@ -27,10 +27,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgresql
+  name: postgresql-service
 spec:
   selector:
-    app: postgresql
+    app: postgresql-labels
   ports:
   - port: 5432
     targetPort: 5432
