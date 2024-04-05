@@ -34,7 +34,7 @@ spec:
   ports:
   - port: 5432
     targetPort: 5432
-    nodePort: 30000
+    nodePort: 31000
   type: NodePort
 ---
 apiVersion: apps/v1
@@ -75,5 +75,5 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-      nodePort: 31000
+      nodePort: 30000
   type: NodePort
