@@ -36,5 +36,48 @@ spec:
     targetPort: 5432
     nodePort: 30000
   type: NodePort
-  
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubenews-metadata
+spec:
+  selector:
+    matchLabels:
+      app: kubenews-labels
+  template:
+    metadata:
+      labels:
+        app: kubenews-labels
+    spec:
+      containers:
+        - name: kubenews-container
+          image: claysilva/kube-news
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+      ports:
+        - containerPort: 8080
+      env:
+        - name: DB_DATABASE
+          value: kubenews
+        - name: DB_USERNAME
+          value: kubenews
+        - name: DB_PASSWORD
+          value: 1234
+        - name: DB_HOST
+          value: postgresql-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aplicacao-service
+spec:
+  selector:
+    app: kubenews-labels
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30000
+  type: NodePort
